@@ -1,9 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
 
     defaultConfig {
         versionCode Integer.parseInt(VERSION_CODE)
@@ -19,4 +20,11 @@ android {
     }
 }
 
+publishing {
+    repositories {
+        mavenLocal()
+    }
+}
 apply from: '../maven_push.gradle'
+dependencies {
+}
